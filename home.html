@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Welcome</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Embedded CSS -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f8cdda, #1d2b64);
+            color: #fff;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .home-container {
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+            margin: auto;
+        }
+
+        .ring-container {
+            margin: 20px auto;
+            width: 120px;
+            height: 120px;
+        }
+
+        #ring {
+            width: 100%;
+            animation: spin 5s linear infinite;
+        }
+
+        audio {
+            width: 100%;
+            max-width: 350px;
+            margin: 15px 0;
+        }
+
+        video {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        @media (max-width: 500px) {
+            .ring-container {
+                width: 100px;
+                height: 100px;
+            }
+            audio {
+                max-width: 300px;
+            }
+            video {
+                max-width: 300px;
+            }
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="home-container">
+        <h2>Welcome!</h2>
+
+        <div class="ring-container">
+            <img src="assets/ring.png" alt="Spinning Ring" id="ring" />
+        </div>
+
+        <audio controls autoplay loop>
+            <source src="assets/music.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <video controls autoplay loop>
+            <source src="assets/her_video.mp4" type="video/mp4">
+            Your browser does not support the video element.
+        </video>
+    </div>
+
+    <script>
+        const user = localStorage.getItem("user");
+        if (!user) {
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>
